@@ -5,9 +5,9 @@
 It's a password generator, which uses your credentials as a seed. That means that you only have to remember your Void credentials to recalculate your password whenever you need it.
 
 ## Pro's and Con's
-[+] User data can't be compromised (cause there's no data to store), unless your machine/local network is.
-[+] No Signup needed. Just pick some credentials and keep them safe.
-[-] If you lost your Void credentials, there's no way out. You're doomed.
+[+] User data can't be compromised (cause there's no data to store), unless your machine/local network is.   
+[+] No Signup needed. Just pick some credentials and keep them safe.   
+[-] If you lost your Void credentials, there's no way out. You're doomed.   
 
 Demo: [click](https://kalymgg.pythonanywhere.com/)
 
