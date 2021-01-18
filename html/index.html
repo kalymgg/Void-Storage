@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Void Storage</title>
+    <meta name="theme-color" content="rgb(198,26,181)">
+    <link rel="icon" type="image/png" sizes="729x723" href="assets/img/fract.png?h=a393b911597039ae51473b4bc23a7852">
+    <link rel="icon" type="image/png" sizes="729x723" href="assets/img/fract.png?h=a393b911597039ae51473b4bc23a7852">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="manifest" href="manifest.json?h=5a2f127e66e2731dada33542e3aea9ce">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css?h=e10e242d52db3aa2d99cd9f4f0b005a7">
+</head>
+
+<body>
+    <!-- Start: Login Form Dark -->
+    <div class="login-dark" style="background-color: rgb(19,76,221);filter: blur(0px) grayscale(0%) hue-rotate(54deg) invert(0%);background-image: url(&quot;assets/img/fract.png?h=a393b911597039ae51473b4bc23a7852&quot;);background-size: contain;background-repeat: repeat;background-position: 50% 50%;">
+        <form name = "form" action="javascript:;" onsubmit="return validateForm()">
+            <h1 class="text-center">The Void</h1>
+            <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
+            <div class="form-group"><input class="form-control" type="email" name="login" placeholder="Storage Email" required=""></div>
+            <div class="form-group"><input class="form-control" type="password" name="pass" placeholder="Storage Password" required="" style="filter: blur(0px);"></div><input class="form-control" type="text" name="domain" placeholder="Service" required=""><input class="form-control"
+                type="text" name="user" value="Default Username" placeholder="Service Username" required="">
+            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Show Password</button></div>
+            <div class="text-center">
+                <h1 id="id01" class="text-center flash animated"></h1>
+            </div>
+        </form>
+    </div>
+    <!-- End: Login Form Dark -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript">
+			function validateForm() {
+			  var name = document.forms["form"]["login"].value;
+			  var pass = document.forms["form"]["pass"].value;
+			  var domain = document.forms["form"]["domain"].value;
+			  var user = document.forms["form"]["user"].value;
+			  if (name == "" || pass == "" || domain == "" || user == "") {
+			   
+			    return false;
+			  }else{
+			  	(async () => {
+				let response = await fetch("/api/void?login="+name+"&pass="+pass+"&domain="+domain+"&user="+user);
+				let text = await response.text(); // read response body as text
+				////alert(text.slice(0, 80) + '...');
+				var element = document.getElementById("id01");
+				element.innerHTML = "";
+				element.innerHTML = text;
+				})();
+				//var element = document.getElementById("id01");
+				//element.innerHTML = text;
+			  }
+			}
+
+		</script>
+</body>
+
+</html>
